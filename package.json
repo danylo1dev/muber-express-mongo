@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "npx dotenv -e test.env -- nodemon --exec mocha --recursive -R min --timeout 10000"
   },
   "keywords": [],
@@ -15,7 +16,7 @@
     "dotenv-cli": "^7.4.1",
     "express": "^4.19.1",
     "mocha": "^10.3.0",
-    "mongoose": "^8.2.2",
+    "mongoose": "^8.2.3",
     "supertest": "^6.3.4"
   }
 }

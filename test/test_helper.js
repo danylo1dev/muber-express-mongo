@@ -5,7 +5,9 @@ beforeEach((done) => {
 
   drivers
     .drop()
-    .then(() => {})
+    .then(() => {
+      drivers.ensureIndex({ "geometry.coordinates": "2dsphere" });
+    })
     .finally(() => {
       done();
     });
