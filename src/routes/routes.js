@@ -1,4 +1,4 @@
-const DriversController = require("../controllers/drivers.controller");
+const DriversController = require("../src/controllers/drivers.controller");
 module.exports = (app) => {
   app.get("/api", DriversController.greeting);
   app.get("/api/drivers", DriversController.index);

@@ -1,8 +1,14 @@
 const Driver = require("../models/driver");
+const service = require("../services/drivers.service");
 
 module.exports = {
-  greeting(req, res) {
-    res.send({ hi: "there" });
+  greeting(req, res, next) {
+    service
+      .greeting()
+      .then((res) => {
+        res.send({ hi: "there" });
+      })
+      .catch(next);
   },
   index(req, res, next) {
     console.log(req.query);
@@ -34,7 +40,8 @@ module.exports = {
   create(req, res, next) {
     const driverData = req.body;
 
-    Driver.create(driverData)
+    service
+      .create(driverData)
       .then((driver) => {
         res.send(driver);
       })
@@ -44,10 +51,8 @@ module.exports = {
     const { id } = req.params;
     const driverData = req.body;
 
-    Driver.findByIdAndUpdate({ id }, driverData)
-      .then(() => {
-        return Driver.findById({ id });
-      })
+    service
+      .update(id, driverData)
       .then((driver) => {
         res.send(driver);
       })
@@ -56,7 +61,8 @@ module.exports = {
   remove(req, res, next) {
     const { id } = req.params;
 
-    Driver.findByIdAndDelete({ id })
+    service
+      .remove(id)
       .then((driver) => {
         res.status(204).send(driver);
       })
