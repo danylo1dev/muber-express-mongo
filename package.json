@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "npx dotenv -e test.env -- nodemon --exec mocha --recursive -R min --timeout 10000"
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "dotenv -e test.env -- nodemon --exec mocha --recursive -R min --timeout 10000"
   },
   "keywords": [],
   "author": "",

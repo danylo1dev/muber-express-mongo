@@ -1,10 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const routes = require("./routes/routes");
+const routes = require("./src/drivers/drivers.router");
 require("dotenv").config();
 
-mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_URL);
 
 const app = express();

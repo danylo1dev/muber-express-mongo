@@ -1,10 +1,7 @@
-const Driver = require("../models/driver");
+const Driver = require("./driver");
 
 module.exports = {
-  greeting() {
-    return { hi: "there" };
-  },
-  index({ lng, lat }) {
+  async getDriversNear({ lng, lat }) {
     const point = {
       type: "Point",
       coordinates: [parseFloat(lng), parseFloat(lat)],
@@ -14,7 +11,7 @@ module.exports = {
       spherical: true,
       maxDistance: 100000, // 10 km
     };
-    return Driver.aggregate([
+    return await Driver.aggregate([
       {
         $geoNear: {
           near: point,
@@ -25,15 +22,14 @@ module.exports = {
       },
     ]);
   },
-  create(driverData) {
-    return Driver.create(driverData);
+  async create(driverData) {
+    return await Driver.create(driverData);
   },
-  update(id, driverData) {
-    return Driver.findByIdAndUpdate({ id }, driverData).then(() => {
-      return Driver.findById({ id });
-    });
+  async update(id, driverData) {
+    await Driver.findByIdAndUpdate({ id }, driverData);
+    return await Driver.findById({ id });
   },
-  remove(id) {
-    return Driver.findByIdAndDelete({ id });
+  async remove(id) {
+    return await Driver.findByIdAndDelete({ id });
   },
 };

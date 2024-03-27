@@ -1,0 +1,56 @@
+# Muber
+This application is designed to work with drivers and find the nearest one. It uses MongoDB because it has a tool for easy manipulation of longitude and latitude.
+
+## What I was learn
+
+I learned how to work with Mongo and Express. I also learned how to work with geolocation in Mongo. It turned out to be quite simple and straightforward.
+
+---
+
+# Installing
+
+## Prerequisites
+
+Before you begin, ensure you have Node.js version 18.16.0 or later installed on your machine.
+
+## Getting Started
+
+To get started with the project, follow these steps:
+
+1. Clone the repository from GitHub:
+
+   ```bash
+   git clone <repository_url>
+   ```
+
+2. Install all dependencies:
+
+   ```bash
+   npm i
+   ```
+
+## Environment Configuration
+
+The repository includes an `.env.example` file. You should create the following environment files:
+
+- `.env`: Default environment for new scripts
+- `test.env`: Test environment
+
+You can use the `.env.example` file as a template.
+
+## Running the Application
+
+To run the application, use the following commands:
+
+- **Development**:
+
+  ```bash
+  npm run dev
+  ```
+- **Production**:
+
+  ```bash
+  npm run start
+  ```
+
+Once the application is running, you can access it via `http://localhost:3000/`.
